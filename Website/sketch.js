@@ -25,7 +25,7 @@ var boardState= [
     [[0,0,0], [0,0,0], [0,0,0]]
 ];
 
-var gridId=[3,2];
+var gridId=[2,1];
 
 let amt;
 
