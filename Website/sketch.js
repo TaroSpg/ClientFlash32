@@ -92,13 +92,17 @@ if (newcolor.levels[0]!=col.levels[0]||newcolor.levels[1]!=col.levels[1]||newcol
   noStroke();
   ambientLight(0, 0, 0);
   pointLight(lerpColor(prevcolor, col, smoothstep(0.1,0.7,amt)), 0, 0, 600);
-  if (checkaccel>=25){
-      accposy=accelerationY;
-      accposx=accelerationX;
-      checkaccel=0;
-  }
-  //pointLight(lerpColor(prevcolor, col, smoothstep(0.1,0.7,amt)), accposy*200, accposz*200, 600);
-  pointLight(lerpColor(prevcolor, col, smoothstep(0.1,0.7,amt)), accposx*10, accposy*10, 510);
+  // if (checkaccel>=50){
+  //     accposy=accelerationY;
+  //     accposx=accelerationX;
+  //     //accposz=accelerationZ;
+  //     checkaccel=0;
+  // }
+  accposy=Math.sign(accelerationY)*(Math.abs(accelerationY+1.2)+Math.abs(accposy))/2;
+  accposx=Math.sign(accelerationX)*(Math.abs(accelerationX)+Math.abs(accposx))/2;
+  pointLight(lerpColor(prevcolor, col, smoothstep(0.1,0.7,amt)), accposx*150, accposy*150, 505);
+  console.log('accposx', accposx);
+  console.log('accposy', accposy);
   specularMaterial(250);
   shininess(5);
   sphere(500);
